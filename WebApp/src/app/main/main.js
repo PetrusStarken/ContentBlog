@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app').component('main', {
-    templateUrl: 'app/components/main/main.html',
+    templateUrl: 'app/main/main.html',
     controller: MainController
   });
 
