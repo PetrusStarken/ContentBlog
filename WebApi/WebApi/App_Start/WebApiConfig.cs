@@ -14,6 +14,8 @@
             config.EnableCors(corsAttr);
             // Web API configuration and services
 
+            UnityConfig.RegisterComponents();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

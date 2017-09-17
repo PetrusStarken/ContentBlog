@@ -9,9 +9,9 @@
     {
         private readonly ILeadServices _leadServices;
 
-        public LeadController()
+        public LeadController(ILeadServices leadServices)
         {
-            _leadServices = new LeadServices();
+            _leadServices = leadServices;
         }
 
         public int Post([FromBody]LeadEntity leadEntity)
