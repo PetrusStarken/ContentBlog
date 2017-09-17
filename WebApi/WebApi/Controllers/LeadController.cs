@@ -3,6 +3,7 @@
     using BusinessServices;
     using BusinessEntities;
     using System.Web.Http;
+    using System.Web;
 
     public class LeadController : ApiController
     {
@@ -13,9 +14,11 @@
             _leadServices = new LeadServices();
         }
 
-        public int Post([FromBody]LeadEntity lead)
+        public int Post([FromBody]LeadEntity leadEntity)
         {
-            return _leadServices.Add(lead);
+            var userIpAddress = HttpContext.Current.Request.UserHostAddress;
+            leadEntity.EnderecoIpv4 = userIpAddress;
+            return _leadServices.Add(leadEntity);
         }
     }
 }

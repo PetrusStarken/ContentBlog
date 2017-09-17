@@ -3,6 +3,7 @@
     using BusinessEntities;
     using DataModel;
     using DataModel.UnitOfWork;
+    using System;
     using System.Transactions;
 
     public class LeadServices : ILeadServices
@@ -20,7 +21,8 @@
                 var lead = new Lead()
                 {
                     Nome = leadEntity.Nome,
-                    Email = leadEntity.Email
+                    Email = leadEntity.Email,
+                    DataRegistro = DateTime.Now
                 };
 
                 _unitOfWork.LeadRepository.Insert(lead);
