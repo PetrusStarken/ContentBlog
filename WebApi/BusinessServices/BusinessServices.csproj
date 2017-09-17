@@ -47,8 +47,12 @@
   <ItemGroup>
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="ILeadServices.cs" />
+    <Compile Include="IArticleCategoryServices.cs" />
+    <Compile Include="IArticleServices.cs" />
     <Compile Include="LeadServices.cs" />
     <Compile Include="MapperConfiguration.cs" />
+    <Compile Include="ArticleCategoryServices.cs" />
+    <Compile Include="ArticleServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

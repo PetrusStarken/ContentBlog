@@ -1,15 +1,19 @@
 namespace DataModel.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataModelContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataModel.DataModelContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "DataModel.DataModelContext";
         }
 
-        protected override void Seed(DataModelContext context)
+        protected override void Seed(DataModel.DataModelContext context)
         {
             //  This method will be called after migrating to the latest version.
 

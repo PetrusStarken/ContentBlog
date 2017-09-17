@@ -13,6 +13,8 @@
     {
         private DataModelContext _context = null;
         private GenericRepository<Lead> _leadRepository;
+        private GenericRepository<Article> _articleRepository;
+        private GenericRepository<ArticleCategory> _articleCategoryRepository;
 
         public UnitOfWork()
         {
@@ -31,6 +33,26 @@
                 if (this._leadRepository == null)
                     this._leadRepository = new GenericRepository<Lead>(_context);
                 return _leadRepository;
+            }
+        }
+
+        public GenericRepository<Article> ArticleRepository
+        {
+            get
+            {
+                if (this._articleRepository == null)
+                    this._articleRepository = new GenericRepository<Article>(_context);
+                return _articleRepository;
+            }
+        }
+
+        public GenericRepository<ArticleCategory> ArticleCategoryRepository
+        {
+            get
+            {
+                if (this._articleCategoryRepository == null)
+                    this._articleCategoryRepository = new GenericRepository<ArticleCategory>(_context);
+                return _articleCategoryRepository;
             }
         }
 

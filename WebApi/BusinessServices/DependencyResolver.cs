@@ -9,6 +9,8 @@
         public void SetUp(IRegisterComponent registerComponent)
         {
             registerComponent.RegisterType<ILeadServices, LeadServices>();
+            registerComponent.RegisterType<IArticleServices, ArticleServices>();
+            registerComponent.RegisterType<IArticleCategoryServices, ArticleCategoryServices>();
         }
     }
 }
