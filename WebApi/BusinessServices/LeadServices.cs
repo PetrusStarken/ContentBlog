@@ -25,7 +25,8 @@
                 {
                     Nome = leadEntity.Nome,
                     Email = leadEntity.Email,
-                    DataRegistro = DateTime.Now
+                    DataRegistro = DateTime.Now,
+                    EndercoIpv4 = leadEntity.EnderecoIpv4
                 };
 
                 _unitOfWork.LeadRepository.Insert(lead);
