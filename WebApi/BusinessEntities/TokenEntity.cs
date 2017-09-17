@@ -1,8 +1,8 @@
-﻿namespace DataModel
+﻿namespace BusinessEntities
 {
     using System;
 
-    public class Token
+    public class TokenEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }

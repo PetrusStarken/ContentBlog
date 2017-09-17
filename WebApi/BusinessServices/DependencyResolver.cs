@@ -8,6 +8,8 @@
     {
         public void SetUp(IRegisterComponent registerComponent)
         {
+            registerComponent.RegisterType<IUserServices, UserServices>();
+            registerComponent.RegisterType<ITokenServices, TokenServices>();
             registerComponent.RegisterType<ILeadServices, LeadServices>();
             registerComponent.RegisterType<IArticleServices, ArticleServices>();
             registerComponent.RegisterType<IArticleCategoryServices, ArticleCategoryServices>();

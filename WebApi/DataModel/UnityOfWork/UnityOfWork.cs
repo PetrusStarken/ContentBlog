@@ -12,6 +12,8 @@
     public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private DataModelContext _context = null;
+        private GenericRepository<User> _userRepository;
+        private GenericRepository<Token> _tokenRepository;
         private GenericRepository<Lead> _leadRepository;
         private GenericRepository<Article> _articleRepository;
         private GenericRepository<ArticleCategory> _articleCategoryRepository;
@@ -23,9 +25,26 @@
 
         #region Public Repository Creation properties...
 
-        /// <summary>
-        /// Get/Set Property for user repository.
-        /// </summary>
+        public GenericRepository<User> UserRepository
+        {
+            get
+            {
+                if (this._userRepository == null)
+                    this._userRepository = new GenericRepository<User>(_context);
+                return _userRepository;
+            }
+        }
+
+        public GenericRepository<Token> TokenRepository
+        {
+            get
+            {
+                if (this._tokenRepository == null)
+                    this._tokenRepository = new GenericRepository<Token>(_context);
+                return _tokenRepository;
+            }
+        }
+
         public GenericRepository<Lead> LeadRepository
         {
             get

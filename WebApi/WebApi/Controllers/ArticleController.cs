@@ -6,7 +6,9 @@
     using System.Web.Http;
     using System.Linq;
     using System.Net;
+    using WebApi.ActionFilters;
 
+    [AuthorizationRequired]
     public class ArticleController : ApiController
     {
         public readonly IArticleServices _articleServices;

@@ -11,23 +11,22 @@
     class ArticleServices : MapperConfiguration<DataModel.Article, ArticleEntity>, IArticleServices
     {
         private readonly UnitOfWork _unitOfWork;
-        private object usuarioEntity;
 
         public ArticleServices(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public int Add(ArticleEntity postEntity)
+        public int Add(ArticleEntity articleEntity)
         {
             using (var scope = new TransactionScope())
             {
                 var post = new Article()
                 {
-                    Author = postEntity.Author,
-                    Content = postEntity.Content,
+                    Author = articleEntity.Author,
+                    Content = articleEntity.Content,
                     Date = DateTime.Now,
-                    Title = postEntity.Title
+                    Title = articleEntity.Title
                 };
 
                 _unitOfWork.ArticleRepository.Insert(post);
@@ -49,9 +48,9 @@
             return postsModel;
         }
 
-        public ArticleEntity Get(int postId)
+        public ArticleEntity Get(int articleId)
         {
-            var post = _unitOfWork.ArticleRepository.GetByID(postId);
+            var post = _unitOfWork.ArticleRepository.GetByID(articleId);
 
             if (post == null)
                 return null;
@@ -61,21 +60,21 @@
 
         }
 
-        public bool Edit(int postId, ArticleEntity postEntity)
+        public bool Edit(int postId, ArticleEntity articleEntity)
         {
-            if (postEntity == null)
+            if (articleEntity == null)
                 return false;
 
             using (var scope = new TransactionScope())
             {
                 var post = _unitOfWork.ArticleRepository.GetByID(postId);
 
-                if (postEntity == null)
+                if (articleEntity == null)
                     return false;
 
-                post.Author = postEntity.Author;
-                post.Content = postEntity.Content;
-                post.Date = postEntity.Date;
+                post.Author = articleEntity.Author;
+                post.Content = articleEntity.Content;
+                post.Date = articleEntity.Date;
                 post.Title = post.Title;
 
                 _unitOfWork.ArticleRepository.Update(post);
@@ -86,14 +85,14 @@
             }
         }
 
-        public bool Delete(int postId)
+        public bool Delete(int articleId)
         {
-            if (postId == 0)
+            if (articleId == 0)
                 return false;
 
             using (var scope = new TransactionScope())
             {
-                var post = _unitOfWork.ArticleRepository.GetByID(postId);
+                var post = _unitOfWork.ArticleRepository.GetByID(articleId);
 
                 if (post == null)
                     return false;
