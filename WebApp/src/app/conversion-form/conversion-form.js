@@ -19,11 +19,9 @@
     vm.cadastrar = Cadastrar;
 
     function Cadastrar(lead) {
-      leadService.cadastrar(lead).then(OnCadastrarSuccess);
-
-      function OnCadastrarSuccess(res) {
-        console.log(res.data);
-      }
+      leadService.add(lead).then(function (res) {
+        
+      });
     }
 
     function ShowLabel(formClass) {

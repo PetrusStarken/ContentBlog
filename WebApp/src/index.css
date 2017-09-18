@@ -40,19 +40,16 @@ body {
   border-radius: 0px;
 }
 
-.btn-default {
-  background-color:  #67A42C;
-  color: white;
-  font-weight: bold;
-}
-  .btn-default:hover {
-    background-color:  #7fa558;
-    color: white;
-  }
-
 .post-preview {
   padding-left: 10px;
+  margin-top: 10px;
 }
+  .post-preview::after {
+    border-bottom: 1px solid #CCC;
+    width: 70%;
+    height: 10px;
+    margin: auto;
+  }
 
   .post-preview .post-title {
     margin-top: 0px;

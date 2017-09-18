@@ -1,0 +1,14 @@
+<div class="row post-preview">
+  <div class="hidden-xs col-md-4">
+    <img ng-src="{{ $ctrl.article.ImageUrl }}" width="250px" height="155px" />
+  </div>
+  <div class="col-sm-12 col-md-8">
+    <h2 class="post-title">{{ $ctrl.article.Title }}</h2>
+    <div class="post-info">
+      <strong>{{ $ctrl.article.Author }}</strong> em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }}
+    </div>
+    <p class="post-resume">
+      {{ $ctrl.article.Resume }}
+    </p>
+  </div>
+</div>

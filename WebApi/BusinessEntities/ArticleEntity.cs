@@ -10,5 +10,7 @@
         public DateTime Date { get; set; }
         public string Content { get; set; }
         public ArticleCategoryEntity Category { get; set; }
+        public string Resume { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

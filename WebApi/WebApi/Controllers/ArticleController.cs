@@ -8,7 +8,6 @@
     using System.Net;
     using WebApi.ActionFilters;
 
-    [AuthorizationRequired]
     public class ArticleController : ApiController
     {
         public readonly IArticleServices _articleServices;
@@ -23,7 +22,7 @@
         {
             var posts = _articleServices.GetAll();
 
-            if (posts == null || posts.Any())
+            if (posts == null || !posts.Any())
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Nenhum post encontrado.");
 
             return Request.CreateResponse(HttpStatusCode.OK, posts);
@@ -41,12 +40,14 @@
         }
 
         // POST: api/Post
+        [AuthorizationRequired]
         public int Post([FromBody]ArticleEntity article)
         {
             return _articleServices.Add(article);
         }
 
         // PUT: api/Post/5
+        [AuthorizationRequired]
         public bool Put(int id, [FromBody]ArticleEntity article)
         {
             if (id == 0)
@@ -56,6 +57,7 @@
         }
 
         // DELETE: api/Post/5
+        [AuthorizationRequired]
         public bool Delete(int id)
         {
             if (id == 0)
