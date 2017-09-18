@@ -9,7 +9,7 @@
         public static void Register(HttpConfiguration config)
         {
             // Enabling CORS for our webapp
-            var webAppAddress = ConfigurationManager.AppSettings["webAppAddress"].ToString();
+            var webAppAddress = ConfigurationManager.AppSettings["WebAppAddress"].ToString();
             var corsAttr = new EnableCorsAttribute(webAppAddress, "*", "*");
             config.EnableCors(corsAttr);
             // Web API configuration and services

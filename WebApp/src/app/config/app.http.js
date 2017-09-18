@@ -9,9 +9,8 @@
 
   function ConfigHttpInterceptors($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     $httpProvider.interceptors.push('editHttpInterceptors');
-    delete $httpProvider.defaults.headers.post['Content-type'];
   }
 
   function EditHttpInterceptors($q, $rootScope) {

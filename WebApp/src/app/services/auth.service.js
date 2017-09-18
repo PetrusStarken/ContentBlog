@@ -14,8 +14,14 @@
 
     function Login(user) {
       var credentials = btoa(user.username + ':' + user.password);
-      $http.defaults.headers.common.Authorization = 'Basic ' + credentials;
-      return $http.post(serviceUrl.auth);
+      return $http({
+        method: 'POST',
+        url: serviceUrl.auth,
+        headers: {
+          Authorization: 'Basic ' + credentials,
+          withCredentials: true
+        }
+      });
     }
   }
 })(angular);
