@@ -13,7 +13,11 @@
     $stateProvider
       .state('app', {
         url: '/',
-        component: 'main'
+        component: 'home'
+      })
+      .state('auth', {
+        url: '/auth',
+        component: 'authenticate'
       });
   }
 })(angular);

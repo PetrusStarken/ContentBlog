@@ -8,6 +8,7 @@
 
   AuthenticateController.$inject = ['authService'];
 
+  /* @ngInject */
   function AuthenticateController(authService) {
     var vm = this;
     vm.user = { };
