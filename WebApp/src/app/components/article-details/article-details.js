@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app').component('articleDetails', {
-    templateUrl: 'app/article-details/article-details.html',
+    templateUrl: 'app/components/article-details/article-details.html',
     controller: ArticleDetailsController
   });
 

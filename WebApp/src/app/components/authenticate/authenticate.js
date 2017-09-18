@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app').component('authenticate', {
-    templateUrl: 'app/authenticate/authenticate.html',
+    templateUrl: 'app/components/authenticate/authenticate.html',
     controller: AuthenticateController
   });
 
@@ -15,8 +15,7 @@
     vm.login = Login;
 
     function Login(user) {
-      authService.login(user).then(function (res) {
-        console.log(res);
+      authService.login(user).then(function () {
       });
     }
   }

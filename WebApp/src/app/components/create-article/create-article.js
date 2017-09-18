@@ -2,14 +2,14 @@
   'use strict';
 
   angular.module('app').component('createArticle', {
-    templateUrl: 'app/create-details/create-article.html',
+    templateUrl: 'app/components/create-details/create-article.html',
     controller: CreateArticleController
   });
 
-  CreateArticleController.$inject = ['articleService'];
+  CreateArticleController.$inject = [];
 
   /* @ngInject */
-  function CreateArticleController(articleService) {
+  function CreateArticleController() {
 
   }
 })(angular);

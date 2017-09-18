@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app').component('cdConversionForm', {
-    templateUrl: 'app/conversion-form/conversion-form.html',
+    templateUrl: 'app/directives/conversion-form/conversion-form.html',
     controller: ConversionFormController,
     bindings: {
       formClass: '@'
@@ -19,8 +19,7 @@
     vm.cadastrar = Cadastrar;
 
     function Cadastrar(lead) {
-      leadService.add(lead).then(function (res) {
-        
+      leadService.add(lead).then(function () {
       });
     }
 
