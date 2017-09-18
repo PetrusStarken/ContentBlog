@@ -60,6 +60,17 @@
 
         }
 
+        public ArticleEntity GetByTitle(string urlTitle)
+        {
+            var post = _unitOfWork.ArticleRepository.Get(a => a.UrlTitle == urlTitle);
+
+            if (post == null)
+                return null;
+
+            var postModel = _mapper.Map<Article, ArticleEntity>(post);
+            return postModel;
+        }
+
         public bool Edit(int postId, ArticleEntity articleEntity)
         {
             if (articleEntity == null)

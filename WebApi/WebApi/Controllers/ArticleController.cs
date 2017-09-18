@@ -39,6 +39,16 @@
             return Request.CreateResponse(HttpStatusCode.OK, post);
         }
 
+        public HttpResponseMessage Get(string urlTitle)
+        {
+            var post = _articleServices.GetByTitle(urlTitle);
+
+            if (post == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Post não encontrado.");
+
+            return Request.CreateResponse(HttpStatusCode.OK, post);
+        }
+
         // POST: api/Post
         [AuthorizationRequired]
         public int Post([FromBody]ArticleEntity article)

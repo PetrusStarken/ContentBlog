@@ -6,10 +6,15 @@
     controller: ArticleDetailsController
   });
 
-  ArticleDetailsController.$inject = ['articleService'];
+  ArticleDetailsController.$inject = ['articleService', '$stateParams'];
 
   /* @ngInject */
-  function ArticleDetailsController(articleService) {
+  function ArticleDetailsController(articleService, $stateParams) {
+    var vm = this;
+    var urlTitle = $stateParams.url;
 
+    articleService.getByTitle(urlTitle).then(function (res) {
+      vm.article = res.data;
+    });
   }
 })(angular);

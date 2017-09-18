@@ -12,5 +12,6 @@
         public ArticleCategory Category { get; set; }
         public string Resume { get; set; }
         public string ImageUrl { get; set; }
+        public string UrlTitle { get; set; }
     }
 }

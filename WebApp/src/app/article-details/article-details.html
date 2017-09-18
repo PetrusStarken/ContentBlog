@@ -1,1 +1,4 @@
-<h1>Article details</h1>
+<h1>{{ $ctrl.article.Title }}</h1>
+<p>{{ $ctrl.article.Author }} às {{ $ctrl.article.Date | date:'dd/MM/yyyy' }</p>
+<p>{{ $ctrl.article.Resume }}</p>
+<p ng-bind-html="$ctrl.article.Content | trustHtml"></p>

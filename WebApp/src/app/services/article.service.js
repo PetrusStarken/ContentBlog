@@ -10,6 +10,7 @@
       add: Add,
       edit: Edit,
       get: Get,
+      getByTitle: GetByTitle,
       getAll: GetAll
     };
 
@@ -25,6 +26,11 @@
 
     function Get(id) {
       var params = {id: id};
+      return $http.get(serviceUrl.article, {params: params});
+    }
+
+    function GetByTitle(urlTitle) {
+      var params = {urlTitle: urlTitle};
       return $http.get(serviceUrl.article, {params: params});
     }
 

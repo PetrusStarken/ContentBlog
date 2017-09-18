@@ -15,6 +15,10 @@
         url: '/',
         component: 'home'
       })
+      .state('article', {
+        url: '/blog/:url',
+        component: 'articleDetails'
+      })
       .state('auth', {
         url: '/auth',
         component: 'authenticate'
