@@ -1,14 +1,15 @@
-<h3>{{ $ctrl.formTitle }}</h3>
-<form name="conversion-form" novalidate class="{{ $ctrl.formClass }}">
-  <div class="form-group">
-    <label ng-if="$ctrl.showLabel($ctrl.formClass)">Nome</label><br />
-    <input ng-model="$ctrl.lead.Nome" placeholder="Nome" type="text" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label ng-if="$ctrl.showLabel($ctrl.formClass)">E-mail</label><br />
-    <input ng-model="$ctrl.lead.Email" placeholder="Email" type="email" class="form-control" />
-  </div>
-  <div class="form-group">
-    <input ng-click="$ctrl.cadastrar($ctrl.lead)" value="Cadastrar" type="button" class="btn btn-default" />
-  </div>
-</form>
+<div class="row">
+  <form name="conversion-form" novalidate class="{{ $ctrl.formClass }}">
+    <div class="form-group">
+      <label ng-if="$ctrl.showLabel($ctrl.formClass)">Nome</label><br />
+      <input ng-model="$ctrl.lead.Nome" placeholder="Nome" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label ng-if="$ctrl.showLabel($ctrl.formClass)">E-mail</label><br />
+      <input ng-model="$ctrl.lead.Email" placeholder="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+      <input ng-click="$ctrl.cadastrar($ctrl.lead)" value="Cadastrar" type="button" class="btn btn-default" />
+    </div>
+  </form>
+</div>

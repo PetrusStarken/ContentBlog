@@ -1,10 +1,8 @@
-<header class="conversion-header">
-  <cd-conversion-form form-class="form-inline" form-title="Cadatre-se para receber conteúdo de valor"></cd-conversion-form>
-</header>
-
-<section class="col-md-9">
-  
-</div>
+<divl class="col-md-9">
+  <div ng-repeat="post in $ctrl.posts">
+    <cd-post-preview post="post"></cd-post-preview>
+  </div>
+</divl>
 <div class="col-md-3">
   <h1>Menu lateral</h1>
 </div>

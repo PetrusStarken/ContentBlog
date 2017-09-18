@@ -1,21 +1,85 @@
 body {
-  padding-bottom: 70px;
-  padding-top: 70px;
+  Font-family: Open Sans;
 }
 
-nav {
-  padding-right: 20px;
-  padding-left: 20px;
+.main-header {
+  background-color: #6DA143;
 }
 
-.navbar {
-  margin: 0px;
+.navbar-header {
+  padding: 5px 0 0 20px;
+}
+
+  .navbar-brand {
+    background-image: url('images/logo-conteudodigital.png');
+    background-size: 80px 60px;
+    height: 61px;
+    width: 81px;
+  }
+
+.navbar-right {
+  font-size: 20px;
+  font-weight: 300;
+  margin-right: 20px;
+  height: 65px;
+}
+
+.navbar-right li > a {
+  color: white !important;
+}
+
+.navbar-right li > a:hover {
+  color:#CCC !important;
 }
 
 .form-inline .form-group {
   vertical-align: baseline;
 }
 
-.form-control, .btn {
+.form-control {
   border-radius: 0px;
+}
+
+.btn-default {
+  background-color:  #67A42C;
+  color: white;
+  font-weight: bold;
+}
+  .btn-default:hover {
+    background-color:  #7fa558;
+    color: white;
+  }
+
+.post-preview {
+  padding-left: 10px;
+}
+
+  .post-preview .post-title {
+    margin-top: 0px;
+  }
+
+  .post-preview .post-info {
+    font-size: 11px;
+  }
+
+  .post-preview .post-resume {
+    margin-top: 5px;
+  }
+
+@media (max-width: 767px) {
+  .conversion-header .conversion-header-title {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }

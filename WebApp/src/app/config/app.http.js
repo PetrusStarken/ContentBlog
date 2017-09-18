@@ -9,6 +9,7 @@
 
   function ConfigHttpInterceptors($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.withCredentials = true;
     $httpProvider.interceptors.push('editHttpInterceptors');
     delete $httpProvider.defaults.headers.post['Content-type'];
   }

@@ -5,8 +5,7 @@
     templateUrl: 'app/conversion-form/conversion-form.html',
     controller: ConversionFormController,
     bindings: {
-      formClass: '@',
-      formTitle: '@'
+      formClass: '@'
     }
   });
 
