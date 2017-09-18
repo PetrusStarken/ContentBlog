@@ -1,15 +1,28 @@
 <div class="row">
-  <form name="conversion-form" novalidate class="{{ $ctrl.formClass }}">
-    <div class="form-group">
-      <label ng-if="$ctrl.showLabel($ctrl.formClass)">Nome</label><br />
-      <input ng-model="$ctrl.lead.Nome" placeholder="Nome" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label ng-if="$ctrl.showLabel($ctrl.formClass)">E-mail</label><br />
-      <input ng-model="$ctrl.lead.Email" placeholder="Email" type="email" class="form-control" />
-    </div>
-    <div class="form-group">
-      <input ng-click="$ctrl.cadastrar($ctrl.lead)" value="Cadastrar" type="button" class="btn btn-default" />
+  <form name="conversionForm" novalidate class="{{ $ctrl.formClass }}">
+    <cd-input-validation
+      input-type="text"
+      label-description=""
+      form-field="conversionForm.Nome"
+      model="$ctrl.lead.Nome"
+      placeholder="Nome completo"
+      responsive-class="col-sm-12"
+      required="true">
+    </cd-input-validation>
+    <cd-input-validation
+      input-type="email"
+      label-description=""
+      field-name="Email"
+      field="conversionForm.Email"
+      model="$ctrl.lead.Email"
+      placeholder="Seu melhor e-mail"
+      responsive-class="col-sm-12"
+      required="true">
+    </cd-input-validation>
+    <div class="col-sm-12">
+      <input ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" value="Cadastrar" type="button" class="btn btn-default" />
     </div>
   </form>
 </div>
+
+<main></main>

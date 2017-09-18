@@ -1,0 +1,21 @@
+<div ng-class="$ctrl.responsiveClass ? $ctrl.responsiveClass : 'col-sm-6 col-lg-4'">
+    <div class="form-group" ng-class="$ctrl.formField.$invalid && $ctrl.formField.$dirty ? 'has-error': {'has-success': $ctrl.formField.$dirty && $ctrl.required}">
+      <label class="control-label" for="{{$ctrl.formField.$name}}" ng-show"$ctrl.labelDescription">{{$ctrl.labelDescription}}</label>
+      <div ng-show="$ctrl.formField.$invalid && $ctrl.formField.$dirty" ng-messages="$ctrl.formField.$error" class="pull-right text-danger">
+        <div ng-message="required">Campo obrigatório</div>
+        <div ng-message="email">Formato de e-mail inválido</div>
+        <div ng-message="fullName">Informe seu nome completo</div>
+      </div>
+      <input
+        type="{{$ctrl.inputType}}"
+        name="{{$ctrl.formField.$name}}"
+        placeholder="{{$ctrl.placeholder}}"
+        ng-model="$ctrl.model"
+        ng-required="$ctrl.required"
+        ng-attr-ng-change="$ctrl.onChange"
+        ng-attr-ng-minlength="$ctrl.minLength"
+        ng-attr-ng-maxlength="$ctrl.maxLength"
+        class="form-control" 
+        name-validation />
+    </div>
+  </div>
