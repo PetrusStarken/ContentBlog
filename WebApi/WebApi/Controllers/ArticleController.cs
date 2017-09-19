@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Net;
     using WebApi.ActionFilters;
+    using System.Collections.Generic;
 
     public class ArticleController : ApiController
     {
@@ -18,14 +19,16 @@
         }
 
         // GET: api/Post
+        [Queryable]
         public HttpResponseMessage Get()
         {
-            var posts = _articleServices.GetAll();
+            var articles = _articleServices.GetAll();
+            var articlesEntities = articles as List<ArticleEntity> ?? articles.ToList();
 
-            if (posts == null || !posts.Any())
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Nenhum post encontrado.");
+            if (articlesEntities.Any())
+                return Request.CreateResponse(HttpStatusCode.OK, articlesEntities.AsQueryable());
 
-            return Request.CreateResponse(HttpStatusCode.OK, posts);
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Nenhum post encontrado.");
         }
 
         // GET: api/Post/5
