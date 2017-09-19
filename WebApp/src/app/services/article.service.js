@@ -34,8 +34,11 @@
       return $http.get(serviceUrl.article, {params: params});
     }
 
-    function GetAll() {
-      return $http.get(serviceUrl.article);
+    function GetAll(filter) {
+      if (!filter) {
+        return $http.get(serviceUrl.article);
+      }
+      return $http.get(serviceUrl.article + '?' + filter);
     }
   }
 })(angular);

@@ -11,7 +11,8 @@
   /* @ngInject */
   function HomeController(articleService) {
     var vm = this;
-    articleService.getAll().then(function (res) {
+    var filter = '$orderby=Date desc';
+    articleService.getAll(filter).then(function (res) {
       vm.articles = res.data;
     });
   }
