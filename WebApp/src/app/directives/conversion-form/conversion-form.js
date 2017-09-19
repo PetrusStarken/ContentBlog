@@ -4,9 +4,7 @@
   angular.module('app').component('cdConversionForm', {
     templateUrl: 'app/directives/conversion-form/conversion-form.html',
     controller: ConversionFormController,
-    bindings: {
-      formClass: '@'
-    }
+    bindings: { }
   });
 
   ConversionFormController.$inject = ['$scope', 'leadService'];
@@ -32,7 +30,10 @@
     // });
 
     function Cadastrar(lead) {
+      vm.loading = true;
       leadService.add(lead).then(function () {
+        vm.leadConverted = true;
+        vm.loading = false;
       });
     }
 

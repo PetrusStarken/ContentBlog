@@ -11,7 +11,7 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('app', {
+      .state('home', {
         url: '/',
         component: 'home'
       })

@@ -1,16 +1,8 @@
-<div class="row post-preview">
-  <a ui-sref="article({url: $ctrl.article.UrlTitle, articleId: $ctrl.article.Id})">
-    <div class="hidden-xs col-md-4">
-      <img ng-src="{{ $ctrl.article.ImageUrl }}" width="250px" height="155px" />
-    </div>
-    <div class="col-sm-12 col-md-8">
-      <h2 class="post-title">{{ $ctrl.article.Title }}</h2>
-      <div class="post-info">
-        <strong>{{ $ctrl.article.Author }}</strong> em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }}
-      </div>
-      <p class="post-resume">
-        {{ $ctrl.article.Resume }}
-      </p>
-    </div>
-  </a>
+<div class="post-preview">
+  <h2 class="post-title">
+    <a ui-sref="article({url: $ctrl.article.UrlTitle})">{{ $ctrl.article.Title }}</a>
+  </h2>
+  <p class="post-meta">Postado por <b>{{ $ctrl.article.Author }}</b> em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }}</p>
+  <p class="post-subtitle" ng-bind="$ctrl.article.Resume | limitText: 230"></p>
 </div>
+<hr>

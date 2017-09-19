@@ -1,11 +1,11 @@
 (function (angular) {
   'use strict';
 
-  angular.module('app').filter('trustHtml', TrusHtml);
+  angular.module('app').filter('trustHtml', TrustHtml);
 
-  TrusHtml.$inject = ['$sce'];
+  TrustHtml.$inject = ['$sce'];
 
-  function TrusHtml($sce) {
+  function TrustHtml($sce) {
     return function (html) {
       return $sce.trustAsHtml(html);
     };

@@ -1,28 +1,35 @@
-<div class="row">
-  <form name="conversionForm" novalidate class="{{ $ctrl.formClass }}">
-    <cd-input-validation
-      input-type="text"
-      label-description=""
-      form-field="conversionForm.Nome"
-      model="$ctrl.lead.Nome"
-      placeholder="Nome completo"
-      responsive-class="col-sm-12"
-      required="true">
-    </cd-input-validation>
-    <cd-input-validation
-      input-type="email"
-      label-description=""
-      field-name="Email"
-      field="conversionForm.Email"
-      model="$ctrl.lead.Email"
-      placeholder="Seu melhor e-mail"
-      responsive-class="col-sm-12"
-      required="true">
-    </cd-input-validation>
-    <div class="col-sm-12">
-      <input ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" value="Cadastrar" type="button" class="btn btn-default" />
+<form name="conversionForm" class="conversion-form" role="form" novalidate>
+  <!-- <div class="conversion-form-border"></div> -->
+  <h3>Receba dicas exclusivas para aumentar suas vendas:</h3>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label>Nome</label>
+      <input ng-model="$ctrl.lead.Nome" type="text" class="form-control" placeholder="seu nome completo" name="leadNome" ng-pattern="fullname" required />
+      <div ng-messages="conversionForm.leadEmail.$error">
+        <p class="help-block" ng-message="required">informe seu nome</p>
+        <p class="help-block" ng-message="pattern">informe seu sebrenome</p>
+      </div>
+      <!-- TODO: Validar nome completo -->
     </div>
-  </form>
-</div>
-
-<main></main>
+  </div>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label>E-mail</label>
+      <input ng-model="$ctrl.lead.Email" type="email" class="form-control" placeholder="seu melhor e-mail" name="leadEmail" ng-pattern="email" required />
+      <div ng-messages="conversionForm.leadEmail.$error">
+        <p class="help-block" ng-message="required">informe seu e-mail</p>
+        <p class="help-block" ng-message="pattern">formato de e-mail incorreto</p>
+      </div>
+      <!-- TODO: Validação email -->
+    </div>
+  </div>
+  <br>
+  <p class="text-center" ng-show="$ctrl.loading"><span class="fa fa-spinner fa-2x fa-spin"></span></p>
+  <div class="row" ng-hide="$ctrl.loading">
+    <div class="form-group col-xs-12">
+      <button ng-click="$ctrl.cadastrar($ctrl.lead)" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
+    </div>
+  </div>
+  <div ng-class="alertClass" ng-show="$ctrl.leadConverted" role="alert">Conteúdos digitais fantásticos receberá você</div>
+  <!-- <div class="conversion-form-border"></div> -->
+</form>

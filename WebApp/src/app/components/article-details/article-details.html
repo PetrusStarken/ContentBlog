@@ -1,4 +1,9 @@
-<h1>{{ $ctrl.article.Title }}</h1>
-<p>{{ $ctrl.article.Author }} às {{ $ctrl.article.Date | date:'dd/MM/yyyy' }</p>
-<p>{{ $ctrl.article.Resume }}</p>
-<p ng-bind-html="$ctrl.article.Content | trustHtml"></p>
+<cd-header page-title="{{ $ctrl.article.Title }}" page-sub-title="{{ $ctrl.article.Author }} em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }}"></cd-header>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" ng-bind-html="$ctrl.article.Content | trustHtml"></div>
+        </div>
+    </div>
+</article>

@@ -1,8 +1,23 @@
-<divl class="col-md-9">
-  <div ng-repeat="article in $ctrl.articles">
-    <cd-article-preview article="article"></cd-article-preview>
+<cd-header page-title="conteudo.digital" page-sub-title="Conteúdo Digital que gera Resultados"></cd-header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-3x fa-spin"></span></p>
+
+      <div ng-repeat="article in $ctrl.articles" ng-if="$ctrl.articles.length > 0">
+        <cd-article-preview article="article"></cd-article-preview>
+      </div>
+      <h3 class="text-center" ng-if="$ctrl.articles.length < 1">NENHUM ARTIGO CADASTRADO</h3>
+      
+      <!-- TODO: Implement pagination
+      <div>
+        <posts-pagination></posts-pagination>
+      </div> -->
+    </div>
+    <div class="col-md-4">
+      <cd-conversion-form></cd-conversion-form>
+    </div>
   </div>
-</divl>
-<div class="col-md-3">
-  <cd-conversion-form></cd-conversion-form>
 </div>
