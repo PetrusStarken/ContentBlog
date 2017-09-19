@@ -8,6 +8,7 @@
     using System.Net;
     using WebApi.ActionFilters;
     using System.Collections.Generic;
+    using System.Web.Http.OData;
 
     public class ArticleController : ApiController
     {
@@ -19,7 +20,7 @@
         }
 
         // GET: api/Post
-        [Queryable]
+        [EnableQueryAttribute]
         public HttpResponseMessage Get()
         {
             var articles = _articleServices.GetAll();
