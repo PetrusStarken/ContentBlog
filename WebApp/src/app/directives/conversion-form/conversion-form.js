@@ -12,6 +12,7 @@
   /* @NgInject */
   function ConversionFormController($scope, leadService) {
     var vm = this;
+    vm.fullNamePattern = '/^[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([-\']?[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)*( [a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([-\']?[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)*)+$/ui';
     vm.lead = {};
     vm.showLabel = ShowLabel;
     vm.cadastrar = Cadastrar;

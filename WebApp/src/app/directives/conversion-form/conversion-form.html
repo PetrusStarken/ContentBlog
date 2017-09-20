@@ -9,7 +9,7 @@
           <div ng-message="required">informe seu nome</div>
           <div ng-message="pattern">informe seu sebrenome</div>
         </div>
-        <input ng-model="$ctrl.lead.Nome" type="text" class="form-control" placeholder="seu nome completo" name="leadNome" ng-pattern="/^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/ui" required />
+        <input ng-model="$ctrl.lead.Nome" type="text" class="form-control" placeholder="seu nome completo" name="leadNome" ng-pattern="{{$ctrl.fullNamePattern}}" required />
       </div>
     </div>
   </div>
@@ -29,9 +29,9 @@
   <p class="text-center" ng-show="$ctrl.loading"><span class="fa fa-spinner fa-2x fa-spin"></span></p>
   <div class="row" ng-hide="$ctrl.loading">
     <div class="form-group col-xs-12">
-      <button ng-click="$ctrl.cadastrar(conversionForm)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
+      <button ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
     </div>
   </div>
-  <div ng-class="alertClass" ng-show="$ctrl.leadConverted" role="alert">Conteúdos digitais fantásticos receberá você</div>
+  <div ng-class="alertClass" ng-show="$ctrl.leadConverted" role="alert">Seu cadastro foi realizado com sucesso.</div>
   <!-- <div class="conversion-form-border"></div> -->
 </form>
