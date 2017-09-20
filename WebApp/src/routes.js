@@ -15,6 +15,14 @@
         url: '/',
         component: 'home'
       })
+      .state('about-us', {
+        url: '/sobre',
+        component: 'aboutUs'
+      })
+      .state('blog', {
+        url: '/blog',
+        component: 'blog'
+      })
       .state('article', {
         url: '/blog/:url',
         component: 'articleDetails'

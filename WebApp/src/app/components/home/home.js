@@ -6,14 +6,10 @@
     controller: HomeController
   });
 
-  HomeController.$inject = ['articleService'];
+  HomeController.$inject = [];
 
   /* @ngInject */
-  function HomeController(articleService) {
-    var vm = this;
-    var filter = '$orderby=Date desc';
-    articleService.getAll(filter).then(function (res) {
-      vm.articles = res.data;
-    });
+  function HomeController() {
+
   }
 })(angular);
