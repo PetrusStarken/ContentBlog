@@ -19,13 +19,18 @@
 
         public int Add(LeadEntity leadEntity)
         {
+            var timezone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+            var utcDateTime = DateTime.UtcNow;
+
+            var brazilianDateTime = TimeZoneInfo.ConvertTime(utcDateTime, timezone);
+
             using (var scope = new TransactionScope())
             {
                 var lead = new Lead()
                 {
                     Nome = leadEntity.Nome,
                     Email = leadEntity.Email,
-                    DataRegistro = DateTime.Now,
+                    DataRegistro = brazilianDateTime,
                     EndercoIpv4 = leadEntity.EnderecoIpv4
                 };
 
