@@ -16,26 +16,19 @@
     vm.showLabel = ShowLabel;
     vm.cadastrar = Cadastrar;
 
-    // $scope.$watch('lead.Nome', function (nome) {
-    //   if (!nome) {
-    //     return;
-    //   }
-
-    //   var parts = nome.split(' ');
-    //   if (parts > 1) {
-    //     return;
-    //   }
-
-    //   vm.conversionForm.Nome.$error.nomeCompleto = (parts < 2);
-    // });
-
     function Cadastrar(lead) {
       vm.loading = true;
       leadService.add(lead).then(function () {
-        delete vm.lead;
         vm.leadConverted = true;
         vm.loading = false;
+        emptyForm();
       });
+
+      function emptyForm() {
+        delete vm.lead;
+        $scope.conversionForm.leadNome.$setPristine();
+        $scope.conversionForm.leadEmail.$setPristine();
+      }
     }
 
     function ShowLabel(formClass) {

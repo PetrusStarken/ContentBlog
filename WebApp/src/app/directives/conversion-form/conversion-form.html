@@ -3,31 +3,33 @@
   <h3>Receba dicas exclusivas para aumentar suas vendas:</h3>
   <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
-      <label>Nome</label>
-      <input ng-model="$ctrl.lead.Nome" type="text" class="form-control" placeholder="seu nome completo" name="leadNome" ng-pattern="fullname" required />
-      <div ng-messages="conversionForm.leadEmail.$error">
-        <p class="help-block" ng-message="required">informe seu nome</p>
-        <p class="help-block" ng-message="pattern">informe seu sebrenome</p>
+      <div ng-class="conversionForm.leadNome.$invalid && conversionForm.leadNome.$dirty ? 'has-error': {'has-success': conversionForm.leadNome.$dirty && required}">
+        <label class="control-label">Nome</label>
+        <div ng-show="conversionForm.leadNome.$invalid && conversionForm.leadNome.$dirty" ng-messages="conversionForm.leadNome.$error" class="pull-right text-danger">
+          <div ng-message="required">informe seu nome</div>
+          <div ng-message="pattern">informe seu sebrenome</div>
+        </div>
+        <input ng-model="$ctrl.lead.Nome" type="text" class="form-control" placeholder="seu nome completo" name="leadNome" ng-pattern="/^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/ui" required />
       </div>
-      <!-- TODO: Validar nome completo -->
     </div>
   </div>
   <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
-      <label>E-mail</label>
-      <input ng-model="$ctrl.lead.Email" type="email" class="form-control" placeholder="seu melhor e-mail" name="leadEmail" ng-pattern="email" required />
-      <div ng-messages="conversionForm.leadEmail.$error">
-        <p class="help-block" ng-message="required">informe seu e-mail</p>
-        <p class="help-block" ng-message="pattern">formato de e-mail incorreto</p>
+      <div class="form-group" ng-class="conversionForm.leadEmail.$invalid && conversionForm.leadEmail.$dirty ? 'has-error': {'has-success': conversionForm.leadEmail.$dirty && required}">
+        <label class="control-label">E-mail</label>
+        <div ng-show="conversionForm.leadEmail.$invalid && conversionForm.leadEmail.$dirty" ng-messages="conversionForm.leadEmail.$error" class="pull-right text-danger">
+          <div ng-message="required">informe seu e-mail</div>
+          <div ng-message="email">informe um e-mail válido</div>
+        </div>
+        <input ng-model="$ctrl.lead.Email" type="email" class="form-control" placeholder="seu melhor e-mail" name="leadEmail" ng-pattern="email" required />
       </div>
-      <!-- TODO: Validação email -->
     </div>
   </div>
   <br>
   <p class="text-center" ng-show="$ctrl.loading"><span class="fa fa-spinner fa-2x fa-spin"></span></p>
   <div class="row" ng-hide="$ctrl.loading">
     <div class="form-group col-xs-12">
-      <button ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
+      <button ng-click="$ctrl.cadastrar(conversionForm)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
     </div>
   </div>
   <div ng-class="alertClass" ng-show="$ctrl.leadConverted" role="alert">Conteúdos digitais fantásticos receberá você</div>
