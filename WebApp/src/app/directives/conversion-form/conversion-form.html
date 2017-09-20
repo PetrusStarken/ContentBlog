@@ -27,7 +27,7 @@
   <p class="text-center" ng-show="$ctrl.loading"><span class="fa fa-spinner fa-2x fa-spin"></span></p>
   <div class="row" ng-hide="$ctrl.loading">
     <div class="form-group col-xs-12">
-      <button ng-click="$ctrl.cadastrar($ctrl.lead)" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
+      <button ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">Quero Receber Agora!</button>
     </div>
   </div>
   <div ng-class="alertClass" ng-show="$ctrl.leadConverted" role="alert">Conteúdos digitais fantásticos receberá você</div>

@@ -32,6 +32,7 @@
     function Cadastrar(lead) {
       vm.loading = true;
       leadService.add(lead).then(function () {
+        delete vm.lead;
         vm.leadConverted = true;
         vm.loading = false;
       });
