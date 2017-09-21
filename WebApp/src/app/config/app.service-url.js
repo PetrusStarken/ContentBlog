@@ -1,7 +1,7 @@
 (function (angular) {
   'use strict';
 
-  var webApiUrl = 'http://localhost:61077/';
+  var webApiUrl = 'http://conteudodigital-api.azurewebsites.net/';
   var config = {
     auth: webApiUrl + 'Api/Authenticate',
     lead: webApiUrl + 'Api/Lead',

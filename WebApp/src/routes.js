@@ -15,14 +15,14 @@
         url: '/',
         component: 'blog'
       })
-      // .state('about-us', {
-      //   url: '/sobre',
-      //   component: 'aboutUs'
-      // })
-      // .state('blog', {
-      //   url: '/blog',
-      //   component: 'blog'
-      // })
+      .state('about-us', {
+        url: '/quem-somos',
+        component: 'aboutUs'
+      })
+      .state('blog', {
+        url: '/blog',
+        component: 'blog'
+      })
       .state('infografico', {
         url: '/infografico',
         component: 'infografico'

@@ -1,3 +1,17 @@
-<cd-header page-title="conteudo.digital" page-sub-title="Conteúdo Digital que gera Resultados"></cd-header>
+<style>
+  p {
+    font-size: 30px;
+  }
+</style>
+<cd-header page-title="conteudo.digital" page-sub-title="Quem somos"></cd-header>
 
-<h1>Conteúdo sobre</h1>
+<div class="container">
+  <div class="row">
+    <p>Somos uma iniciativa criada por um grupo de colegas, que em um momento de desafio em suas carreiras profissionais, decidiram fazer algo a mais para contribuir com a sociedade.</p>
+    <p>Nosso objetivo principal é produzir e compartilhar conteúdos, para auxiliar no entendimento de como o marketing de conteúdo pode ser aplicado em seu negócio para aumentar a atração de clientes e maximizar seus resultados.</p>
+    <p>Conheça nosso <a ui-sref="blog" target="_blank">blog</a> e <a href="javascript:void(0)" ng-click="$ctrl.openConversionModal()">cadastre-se</a> para receber nossos conteúdos. o/</p>
+  </div>
+</div>
+<script type="text/ng-template" id="conversion-form-modal.html">
+  <cd-conversion-form></cd-conversion-form>
+</script>

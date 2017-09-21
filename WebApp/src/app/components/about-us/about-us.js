@@ -6,9 +6,17 @@
     controller: AboutUsController
   });
 
-  AboutUsController.$inject = [];
+  AboutUsController.$inject = ['$uibModal'];
 
-  function AboutUsController() {
+  function AboutUsController($uibModal) {
+    var vm = this;
+    vm.openConversionModal = OpenConversionModal;
 
+    function OpenConversionModal() {
+      $uibModal.open({
+        templateUrl: 'conversion-form-modal.html',
+        size: 'md'
+      });
+    }
   }
 })(angular);
