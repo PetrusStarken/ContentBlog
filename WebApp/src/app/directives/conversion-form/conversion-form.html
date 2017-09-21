@@ -30,6 +30,7 @@
   <div class="row" ng-hide="$ctrl.loading">
     <div class="form-group col-xs-12">
       <button ng-click="$ctrl.cadastrar($ctrl.lead)" ng-disabled="conversionForm.$invalid" type="submit" class="btn btn-default btn-block">{{ $ctrl.buttonMessage ? $ctrl.buttonMessage : 'Quero Receber Agora!' }}</button>
+      <a ng-if="$ctrl.leadConverted && $ctrl.fileUrl" class="btn btn-default btn-block" href="{{ $ctrl.fileUrl }}" download="{{ $ctrl.fileName }}" target="_self"><i class="fa fa-download" aria-hidden="true"></i> Baixar infográfico</a>
     </div>
   </div>
   <div class="text-success" ng-show="$ctrl.leadConverted" role="alert">{{ $ctrl.conversionMessage ? $conversionMessage : 'Seu cadastro foi realizado com sucesso.' }}</div>

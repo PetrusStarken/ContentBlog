@@ -5,6 +5,7 @@
     templateUrl: 'app/directives/conversion-form/conversion-form.html',
     controller: ConversionFormController,
     bindings: {
+      formClass: '@',
       formTitle: '@',
       fileUrl: '@',
       formType: '@',
@@ -13,14 +14,15 @@
     }
   });
 
-  ConversionFormController.$inject = ['$scope', '$window', 'leadService'];
+  ConversionFormController.$inject = ['$scope', 'leadService'];
 
   /* @NgInject */
-  function ConversionFormController($scope, $window, leadService) {
+  function ConversionFormController($scope, leadService) {
     var vm = this;
     vm.lead = {};
     vm.showLabel = ShowLabel;
     vm.cadastrar = Cadastrar;
+    vm.$onInit = OnInit;
 
     function Cadastrar(lead) {
       vm.loading = true;
@@ -28,9 +30,6 @@
         vm.leadConverted = true;
         vm.loading = false;
         emptyForm();
-        if (vm.formType === 'download') {
-          $window.open(vm.fileUrl);
-        }
       });
 
       function emptyForm() {
@@ -42,6 +41,18 @@
 
     function ShowLabel(formClass) {
       return formClass !== 'form-inline';
+    }
+
+    function OnInit() {
+      vm.fileName = getFileName(vm.fileUrl);
+    }
+
+    function getFileName(fileUrl) {
+      if (!fileUrl) {
+        return;
+      }
+      var arrPathFile = fileUrl.split('/');
+      return arrPathFile[arrPathFile.length - 1];
     }
   }
 })(angular);

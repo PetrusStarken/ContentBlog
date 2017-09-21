@@ -2,7 +2,7 @@
   <h2 class="post-title">
     <a ui-sref="article({url: $ctrl.article.UrlTitle})">{{ $ctrl.article.Title }}</a>
   </h2>
-  <p class="post-meta">Postado por <b>{{ $ctrl.article.Author }}</b> em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }} às às {{ $ctrl.article.Date | date:'HH:mm' }}</p>
+  <p class="post-meta">Postado por <b>{{ $ctrl.article.Author }}</b> em {{ $ctrl.article.Date | date:'dd/MM/yyyy' }} às {{ $ctrl.article.Date | date:'HH:mm' }}</p>
   <p class="post-subtitle" ng-bind="$ctrl.article.Resume | limitText: 230"></p>
 </div>
 <hr>
