@@ -6,12 +6,14 @@
     controller: ArticleDetailsController
   });
 
-  ArticleDetailsController.$inject = ['articleService', '$stateParams'];
+  ArticleDetailsController.$inject = ['articleService', '$stateParams', 'conversionModalService'];
 
   /* @ngInject */
-  function ArticleDetailsController(articleService, $stateParams) {
+  function ArticleDetailsController(articleService, $stateParams, conversionModalService) {
     var vm = this;
     var urlTitle = $stateParams.url;
+
+    vm.openConversionModal = conversionModalService.open;
 
     articleService.getByTitle(urlTitle).then(function (res) {
       vm.article = res.data;

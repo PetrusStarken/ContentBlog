@@ -3,7 +3,7 @@
 <article>
   <div class="container">
     <div class="row">
-      <div class="col-md-8" ng-bind-html="$ctrl.article.Content | trustHtml"></div>
+      <div class="col-md-8" cd-dynamic-html="$ctrl.article.Content"></div>
 
       <div class="col-md-4">
         <cd-conversion-form></cd-conversion-form>

@@ -6,17 +6,10 @@
     controller: AboutUsController
   });
 
-  AboutUsController.$inject = ['$uibModal'];
+  AboutUsController.$inject = ['conversionModalService'];
 
-  function AboutUsController($uibModal) {
+  function AboutUsController(conversionModalService) {
     var vm = this;
-    vm.openConversionModal = OpenConversionModal;
-
-    function OpenConversionModal() {
-      $uibModal.open({
-        templateUrl: 'conversion-form-modal.html',
-        size: 'md'
-      });
-    }
+    vm.openConversionModal = conversionModalService.open;
   }
 })(angular);
