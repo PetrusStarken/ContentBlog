@@ -4,15 +4,20 @@
   angular.module('app').component('cdConversionForm', {
     templateUrl: 'app/directives/conversion-form/conversion-form.html',
     controller: ConversionFormController,
-    bindings: { }
+    bindings: {
+      formTitle: '@',
+      fileUrl: '@',
+      formType: '@',
+      conversionMessage: '@',
+      buttomMessage: '@'
+    }
   });
 
-  ConversionFormController.$inject = ['$scope', 'leadService'];
+  ConversionFormController.$inject = ['$scope', '$window', 'leadService'];
 
   /* @NgInject */
-  function ConversionFormController($scope, leadService) {
+  function ConversionFormController($scope, $window, leadService) {
     var vm = this;
-    vm.fullNamePattern = '/^[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([-\']?[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)*( [a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([-\']?[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)*)+$/ui';
     vm.lead = {};
     vm.showLabel = ShowLabel;
     vm.cadastrar = Cadastrar;
@@ -23,6 +28,9 @@
         vm.leadConverted = true;
         vm.loading = false;
         emptyForm();
+        if (vm.formType === 'download') {
+          $window.open(vm.fileUrl);
+        }
       });
 
       function emptyForm() {

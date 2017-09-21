@@ -13,15 +13,19 @@
     $stateProvider
       .state('home', {
         url: '/',
-        component: 'home'
-      })
-      .state('about-us', {
-        url: '/sobre',
-        component: 'aboutUs'
-      })
-      .state('blog', {
-        url: '/blog',
         component: 'blog'
+      })
+      // .state('about-us', {
+      //   url: '/sobre',
+      //   component: 'aboutUs'
+      // })
+      // .state('blog', {
+      //   url: '/blog',
+      //   component: 'blog'
+      // })
+      .state('infografico', {
+        url: '/infografico',
+        component: 'infografico'
       })
       .state('article', {
         url: '/blog/:url',
